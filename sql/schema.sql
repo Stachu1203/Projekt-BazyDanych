@@ -1,8 +1,6 @@
--- Opcjonalne: Czyszczenie bazy przed nowym importem
+
 EXEC sp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
 EXEC sp_MSforeachtable 'DELETE FROM ?';
--- Jeśli chcesz zresetować liczniki IDENTITY:
--- EXEC sp_MSforeachtable 'DBCC CHECKIDENT ("?", RESEED, 0)'; 
 EXEC sp_MSforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL';
 GO
 
